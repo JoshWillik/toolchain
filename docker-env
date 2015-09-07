@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+if [ -z "${1+foobar}" ]; then
+  eval $( docker-machine env -u $1 )
+else
+  eval $( docker-machine env $1 )
+fi
