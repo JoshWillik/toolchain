@@ -3,7 +3,7 @@ set -u
 set -e
 
 if [ -z "${1+foo}" ]; then
-	echo "Usage: add-script <name>"
+	echo "Usage: make-tool <name>"
 	exit
 fi
 
