@@ -17,7 +17,3 @@ if [ ! -f $dir/$1 ]; then
 fi
 
 $EDITOR $dir/$1
-
-git add --all
-git commit -a
-git push origin master

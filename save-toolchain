@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+cd ~/.toolchain
+git add --all
+git commit -a
+git push origin master
