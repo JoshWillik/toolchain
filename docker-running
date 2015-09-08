@@ -3,7 +3,7 @@
 import subprocess
 import json
 
-raw_data = subprocess.check_output(["curl", "--unix-socket", "/var/run/docker.sock", "http:/containers/json"])
+raw_data = subprocess.check_output(["curl", "--unix-socket", "/var/run/docker.sock", "http:/containers/json"], stderr=subprocess.DEVNULL)
 data = json.loads(raw_data.decode('utf-8'))
 
 for container in data:
