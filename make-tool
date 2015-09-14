@@ -10,10 +10,10 @@ fi
 script_type=${2:-bash}
 dir=~/.toolchain
 
-if [ ! -f $dir/$1 ]; then
+[ -f $dir/$1 ] || {
 	touch $dir/$1
 	echo "#! /usr/bin/env $script_type" > $dir/$1
 	chmod +x $dir/$1
-fi
+}
 
 $EDITOR $dir/$1

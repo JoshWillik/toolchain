@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+if [ "$1" != "ok" ]; then
+  flag="--dry-run"
+else
+  flag=""
+fi
+
+docker run \
+         -v /var/run/docker.sock:/var/run/docker.sock \
+        -v /var/lib/docker:/var/lib/docker \
+        --rm \
+        martin/docker-cleanup-volumes $flag
