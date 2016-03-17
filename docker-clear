@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-docker ps -qa | xargs docker rm $@
+docker ps -qa | xargs docker rm -v $@
