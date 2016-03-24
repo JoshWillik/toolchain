@@ -1,2 +1,14 @@
 #! /usr/bin/env bash
+
+active_host=$(docker-machine active 2> /dev/null || echo none)
+
+if [[ $active_host != none ]]; then
+	echo "You are currently attached to docker machine node: $active_host"
+	echo If you would like to clear anyway, just wait
+	for i in $(seq 10 -1 1); do
+		echo $i
+		sleep 1
+	done
+fi
+
 docker ps -qa | xargs docker rm -v $@
