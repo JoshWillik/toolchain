@@ -1,1 +1,3 @@
-du -csh * | sort -rh | head
+#! /usr/bin/env bash
+num=${1:-10}
+du -sh * | sort -rh | head -n $num

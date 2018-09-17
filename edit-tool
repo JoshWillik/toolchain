@@ -4,3 +4,4 @@ if [ -z "${1+foo}" ]; then
         exit
 fi
 $EDITOR ~/.toolchain/$1
+chmod +x ~/.toolchain/$1
