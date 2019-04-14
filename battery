@@ -1,5 +1,4 @@
 #!/usr/bin/fish
-set -l percent (acpi -b | grep -v unavailable | grep -oP '\d+(?=%)')
 set -l prompt_mode
 for arg in $argv
   switch "$arg"
@@ -8,8 +7,9 @@ for arg in $argv
   end
 end
 
+set -l percent (cat /sys/class/power_supply/BAT0/capacity)
 set -l power_letter
-if acpi -a | grep on-line ^/dev/null >/dev/null
+if grep -q 1 /sys/class/power_supply/ADP1/online
   set power_letter =
 else
   set power_letter 0
