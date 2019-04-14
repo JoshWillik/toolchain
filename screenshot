@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+set -l time (date '+%Y-%m-%d_%H:%m:%S' )
+set -l new_shot "/home/josh/Pictures/$time.png"
+import "$new_shot"
+if "true"
+	set -l response (curl -XPOST -F "filename=screenshot.png" -F "file=@$new_shot" https://pasteboard.co/upload)
+	set -l new_url (echo $response | jq -r '.url')
+	echo $new_url | xclip -sel clip
+	echo Copied $new_url to clipboard
+else
+	echo $new_shot
+end
