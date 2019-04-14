@@ -1,7 +1,0 @@
-#! /usr/bin/env bash
-if [ -z "${1+foo}" ]; then
-        echo "Usage: edit-tool <name>"
-        exit
-fi
-$EDITOR ~/.toolchain/$1
-chmod +x ~/.toolchain/$1
