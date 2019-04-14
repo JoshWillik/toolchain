@@ -1,0 +1,22 @@
+#!/usr/bin/fish
+set -l percent (acpi -b | grep -v unavailable | grep -oP '\d+(?=%)')
+set -l prompt_mode
+for arg in $argv
+  switch "$arg"
+  case --prompt
+    set prompt_mode 1
+  end
+end
+
+set -l power_letter
+if acpi -a | grep on-line ^/dev/null >/dev/null
+  set power_letter =
+else
+  set power_letter 0
+end
+
+if [ -n "$prompt_mode" ]
+  echo "$power_letter $percent%"
+else
+  echo $percent
+end
